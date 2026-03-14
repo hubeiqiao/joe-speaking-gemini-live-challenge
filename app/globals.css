@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --landing-bg: oklch(0.985 0.008 85);
+    --landing-surface: oklch(0.97 0.012 80);
+    --landing-surface-elevated: oklch(1 0 0);
+    --landing-accent: oklch(0.65 0.16 55);
+    --landing-accent-hover: oklch(0.58 0.17 50);
+    --landing-accent-soft: oklch(0.92 0.05 75);
+    --landing-accent-dark: oklch(0.5 0.15 55);
+    --landing-text: oklch(0.18 0.01 75);
+    --landing-text-secondary: oklch(0.4 0.01 75);
+    --landing-text-tertiary: oklch(0.5 0.01 75);
+    --landing-border: oklch(0.9 0.008 82);
+    --landing-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --landing-shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.06),
+      0 4px 16px -4px rgba(180, 120, 60, 0.08);
+    --landing-shadow-md: 0 4px 16px -4px rgba(0, 0, 0, 0.08),
+      0 8px 32px -8px rgba(180, 120, 60, 0.12);
+    --white: oklch(100% 0 0);
+    --eclipse: oklch(0.2103 0.0059 285.89);
+    --background: oklch(0.98 0.002 285);
+    --foreground: var(--eclipse);
+    --surface: var(--white);
+    --surface-soft: oklch(0.96 0.003 280);
+    --default: oklch(0.96 0.003 280);
+    --default-foreground: var(--eclipse);
+    --accent: oklch(0.65 0.18 280);
+    --accent-strong: oklch(0.58 0.18 280);
+    --accent-soft: oklch(0.92 0.06 280);
+    --text-secondary: oklch(0.5517 0.0138 285.94);
+    --muted: oklch(0.5517 0.0138 285.94);
+    --border: oklch(0.90 0.005 285);
+    --divider: oklch(0.92 0.004 286);
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-left: env(safe-area-inset-left, 0px);
+    --safe-area-right: env(safe-area-inset-right, 0px);
+    --bottom-tab-height: 60px;
+    --bottom-tab-height-safe: calc(60px + var(--safe-area-bottom));
+    --landing-shadow-lg: 0 16px 48px -12px rgba(0, 0, 0, 0.1),
+      0 28px 72px -20px rgba(180, 120, 60, 0.18);
+  }
+
+  * {
+    @apply border-[color:var(--border)];
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen antialiased;
+    font-family: var(--font-body), system-ui, sans-serif;
+    background:
+      radial-gradient(circle at top right, color-mix(in oklab, var(--accent-soft) 55%, transparent) 0, transparent 30%),
+      linear-gradient(180deg, oklch(0.993 0.002 285) 0%, oklch(0.978 0.003 285) 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .surface-card {
+    background: color-mix(in oklab, var(--surface) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+    box-shadow: var(--landing-shadow-lg);
+  }
+
+  .landing-card {
+    background: color-mix(in oklab, var(--landing-surface-elevated) 92%, transparent);
+    border: 1px solid color-mix(in oklab, var(--landing-border) 86%, transparent);
+    box-shadow: var(--landing-shadow-md);
+  }
+
+  .landing-shell {
+    background:
+      radial-gradient(circle at top right, color-mix(in oklab, var(--landing-accent-soft) 65%, transparent) 0, transparent 35%),
+      linear-gradient(180deg, var(--landing-bg) 0%, oklch(0.972 0.012 82) 100%);
+  }
+
+  .landing-section {
+    @apply mx-auto max-w-7xl px-6 sm:px-10 lg:px-12;
+  }
+}
