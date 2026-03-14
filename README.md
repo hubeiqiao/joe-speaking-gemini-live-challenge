@@ -1,6 +1,6 @@
 # Joe Speaking Live
 
-Joe Speaking Live is a new **Gemini Live Agent Challenge** submission based on the Joe Speaking product experience. It keeps the Joe Speaking landing page, IELTS framing, live speaking flow, library, review, and same-topic retry loop, but ships as a separate challenge build hosted on **Google Cloud**.
+Joe Speaking Live is a new **Gemini Live Agent Challenge** submission based on the Joe Speaking product experience. Joe Speaking is the broader speaking product at **[JoeSpeaking.com](https://joespeaking.com)**, while this repository is the separate challenge build that keeps the Joe Speaking landing page, IELTS framing, live speaking flow, library, review, and same-topic retry loop, but ships as its own **Google Cloud** submission artifact.
 
 ## Challenge Fit
 
@@ -21,6 +21,7 @@ Official challenge references:
 
 - **Live demo:** [joe-speaking-gemini-live-challenge-739605611304.northamerica-northeast1.run.app](https://joe-speaking-gemini-live-challenge-739605611304.northamerica-northeast1.run.app)
 - **Public repo:** [github.com/hubeiqiao/joe-speaking-gemini-live-challenge](https://github.com/hubeiqiao/joe-speaking-gemini-live-challenge)
+- **Joe Speaking product:** [JoeSpeaking.com](https://joespeaking.com)
 - **Architecture diagram:** [docs/architecture/diagram.md](./docs/architecture/diagram.md)
 - **Google Cloud deployment proof:** [docs/gcp/DEPLOY.md](./docs/gcp/DEPLOY.md)
 - **Google Cloud service usage in code:** [app/api/live/token/route.ts](./app/api/live/token/route.ts)
@@ -185,3 +186,5 @@ Read these in order:
 ## Notes for Judges
 
 This project was built specifically for the Gemini Live Agent Challenge as a new challenge submission, while reusing the Joe Speaking interface and learning flow as the product foundation.
+
+If you want to see the broader Joe Speaking product context, visit **[JoeSpeaking.com](https://joespeaking.com)**. This repository and the Cloud Run demo are the challenge-specific build, not the full production app.
