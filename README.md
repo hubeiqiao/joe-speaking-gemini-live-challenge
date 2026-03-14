@@ -26,6 +26,36 @@ Official challenge references:
 - **Google Cloud deployment proof:** [docs/gcp/DEPLOY.md](./docs/gcp/DEPLOY.md)
 - **Google Cloud service usage in code:** [app/api/live/token/route.ts](./app/api/live/token/route.ts)
 
+## Architecture Diagram
+
+```mermaid
+flowchart LR
+  A["Judge Browser"] --> B["Cloud Run Next.js App"]
+  B --> C["Gemini Live / Google GenAI SDK"]
+  B --> E["Google Secret Manager"]
+  A --> F["Local Judge State"]
+
+  subgraph "Cloud Run App"
+    B1["Landing + Judge Flow"]
+    B2["Live Token Endpoint"]
+    B3["Review Endpoint"]
+    B4["Demo Provision Endpoint"]
+  end
+
+  subgraph "Judge Browser"
+    A1["Landing / Judge Entry"]
+    A2["Gemini Live Panel (audio + mic + transcript)"]
+    A3["Library / Collection / Review Shell"]
+  end
+
+  B --> B1
+  B --> B2
+  B --> B3
+  B --> B4
+```
+
+This challenge build uses **Cloud Run** as the canonical host, **Secret Manager** for server-side secrets, and **Gemini Live** through the **Google GenAI SDK**. The browser requests a live token from the backend, then connects into the Gemini live session while keeping the Joe Speaking UI flow for practice, review, and retry.
+
 ## What Judges Should See
 
 This build is intentionally focused on one clear loop:
